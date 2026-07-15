@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AquaLoop | Smart Greywater Advisor</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="container">
+
+<header>
+
+<h1>💧 AquaRevive</h1>
+
+<p class="tagline">
+
+Smart Greywater Advisor
+
+</p>
+
+<p class="subtitle">
+
+Estimate • Reuse • Conserve
+
+</p>
+
+</header>
+
+<div class="card">
+
+<h2>Select Activity</h2>
+
+<select id="activity">
+
+<option value="">-- Choose Activity --</option>
+
+<option value="hand">🧼 Washing Hands</option>
+
+<option value="vegetables">🥕 Washing Vegetables</option>
+
+<option value="utensils">🍽️ Rinsing Utensils</option>
+
+<option value="dishwashing">🍳 Dishwashing</option>
+
+<option value="laundry">👕 Laundry</option>
+
+</select>
+
+</div>
+
+<div class="card">
+
+<h2>Approximate Water Usage Time</h2>
+
+<select id="time">
+
+<option value="">-- Select Time Range --</option>
+
+<option value="2">Less than 30 seconds</option>
+
+<option value="5">30 sec – 1 minute</option>
+
+<option value="12">1 – 3 minutes</option>
+
+<option value="24">3 – 5 minutes</option>
+
+<option value="45">5 – 10 minutes</option>
+
+<option value="75">10 – 15 minutes</option>
+
+<option value="100">More than 15 minutes</option>
+
+</select>
+
+<p class="note">
+
+*Values are estimated using typical household tap flow rates.
+
+</p>
+
+</div>
+
+<div class="button-container">
+
+<button onclick="analyseWater()">
+
+Analyse Water Usage
+
+</button>
+
+</div>
+
+<div class="results" id="results">
+
+<div class="result-card">
+
+<h3>💧 Estimated Greywater Generated</h3>
+
+<p id="waterSaved">--</p>
+
+</div>
+
+<div class="result-card">
+
+<h3>♻ Freshwater Conserved</h3>
+
+<p id="freshWater">--</p>
+
+</div>
+
+<div class="result-card">
+
+<h3>🌱 Environmental Impact</h3>
+
+<p id="impact">
+
+--
+
+</p>
+
+</div>
+
+<div class="result-card">
+
+<h3>🌿 Best Reuse Recommendation</h3>
+
+<p id="reuse">
+
+--
+
+</p>
+
+</div>
+
+<div class="result-card">
+
+<h3>🧽 Filter Maintenance Tips</h3>
+
+<p id="maintenance">
+
+--
+
+</p>
+
+</div>
+
+</div>
+
+<footer>
+
+<p>
+
+Every Drop Counts Towards A Sustainable Tomorrow 💙
+
+</p>
+
+</footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
