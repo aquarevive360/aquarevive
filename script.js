@@ -8,8 +8,7 @@ function analyseWater() {
     let activity = document.getElementById("activity").value;
     let litres = document.getElementById("time").value;
 
-    if(activity==="" || litres==="")
-    {
+    if (activity === "" || litres === "") {
         alert("Please select both the activity and the water usage time.");
         return;
     }
@@ -21,33 +20,67 @@ function analyseWater() {
     // -----------------------------
 
     document.getElementById("waterSaved").innerHTML =
-    litres.toFixed(1) + " Litres";
+        litres.toFixed(1) + " Litres";
 
     document.getElementById("freshWater").innerHTML =
-    litres.toFixed(1) + " Litres";
+        litres.toFixed(1) + " Litres";
 
 
     // -----------------------------
     // Environmental Impact
     // -----------------------------
 
-    let plants = Math.max(1, Math.round(litres / 2));
-    let flushes = Math.max(1, Math.round(litres / 6));
+    let impact = "";
 
-    let impact =
-    "🌱 Can water approximately <b>" +
-    plants +
-    "</b> small potted plant(s)<br><br>" +
+    switch(activity)
+    {
 
-    "🚽 Equivalent to about <b>" +
-    flushes +
-    "</b> toilet flush(es).";
+        case "hand":
+
+        impact =
+        "🪣 Encourages reuse of greywater for household cleaning.<br><br>" +
+        "💧 Helps reduce unnecessary freshwater consumption.";
+
+        break;
+
+
+        case "vegetables":
+
+        let plants = Math.max(1, Math.round(litres / 2));
+
+        impact =
+        "🌱 Can water approximately <b>" +
+        plants +
+        "</b> small potted plant(s).<br><br>" +
+        "💧 Helps conserve freshwater for gardening.";
+
+        break;
+
+
+        case "utensils":
+
+        impact =
+        "🧹 Supports reuse for cleaning outdoor areas.<br><br>" +
+        "♻️ Reduces freshwater usage for household cleaning.";
+
+        break;
+
+
+        case "dishwashing":
+
+        impact =
+        "🪣 Promotes reuse for household cleaning.<br><br>" +
+        "♻️ Reduces wastewater discharged into drains.";
+
+        break;
+
+    }
 
     document.getElementById("impact").innerHTML = impact;
 
 
     // -----------------------------
-    // Reuse Recommendation
+    // Best Reuse Recommendation
     // -----------------------------
 
     let reuse = "";
@@ -58,9 +91,9 @@ function analyseWater() {
         case "hand":
 
         reuse =
-        "• Water ornamental plants<br>" +
         "• Floor cleaning<br>" +
-        "• Toilet flushing";
+        "• Cleaning washrooms<br>" +
+        "• Cleaning outdoor surfaces";
 
         break;
 
@@ -68,8 +101,9 @@ function analyseWater() {
         case "vegetables":
 
         reuse =
-        "• Water garden plants<br>" +
-        "• Clean outdoor areas";
+        "• Watering garden plants<br>" +
+        "• Washing buckets and watering cans<br>" +
+        "• Cleaning outdoor areas";
 
         break;
 
@@ -77,8 +111,9 @@ function analyseWater() {
         case "utensils":
 
         reuse =
+        "• Cleaning kitchen countertops<br>" +
         "• Floor cleaning<br>" +
-        "• Toilet flushing";
+        "• Cleaning outdoor areas";
 
         break;
 
@@ -86,17 +121,9 @@ function analyseWater() {
         case "dishwashing":
 
         reuse =
-        "• Toilet flushing only (after proper filtration)<br>" +
-        "• Outdoor cleaning";
-
-        break;
-
-
-        case "laundry":
-
-        reuse =
-        "• Toilet flushing<br>" +
-        "• Cleaning driveways and pavements";
+        "• Floor cleaning<br>" +
+        "• Cleaning outdoor pathways<br>" +
+        "• Cleaning outdoor surfaces";
 
         break;
 
@@ -105,17 +132,13 @@ function analyseWater() {
     document.getElementById("reuse").innerHTML = reuse;
 
 
-
     // -----------------------------
-    // Filter Maintenance
+    // Filter Maintenance Tips
     // -----------------------------
 
     let maintenance =
-    "🧽 Wash the reusable mesh pre-filter every week.<br><br>" +
-
-    "🌑 Replace activated charcoal every 2 months.<br><br>" +
-
-    "🪨 Rinse the sand and gravel once every month to maintain good filtration.";
+        "🧽 Wash the reusable mesh pre-filter every 2–3 days.<br><br>" +
+        "🪨 Replace the gravel once every month to maintain good filtration.";
 
     document.getElementById("maintenance").innerHTML = maintenance;
 
@@ -124,9 +147,8 @@ function analyseWater() {
     // Smooth Scroll to Results
     // -----------------------------
 
-    document.getElementById("results")
-    .scrollIntoView({
-        behavior:"smooth"
+    document.getElementById("results").scrollIntoView({
+        behavior: "smooth"
     });
 
 }
